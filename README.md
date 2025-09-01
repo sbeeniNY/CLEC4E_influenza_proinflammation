@@ -1,5 +1,6 @@
 # Single-Cell Network Analysis Identifies CLEC4E as a Key Mediator of Proinflammatory mDC Responses in Influenza Infection
-Code repository for the paper, including analysis code and data. more details are described in the accompanying manuscript 👉[BioRxiv Cho. etal. (Aug 2025)](https://doi.org/10.1101/2025.08.21.671587)
+Code repository for the paper, including analysis code and data. 
+more details are described in the accompanying manuscript 👉[BioRxiv Cho. etal. (Aug 2025)](https://doi.org/10.1101/2025.08.21.671587)
 
 ## Study overview
 <center><img width="500" alt="Figure1" src="https://github.com/user-attachments/assets/45f2cafd-3239-4498-a325-8f96e94c9119" /></center>
