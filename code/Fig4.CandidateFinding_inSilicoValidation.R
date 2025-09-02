@@ -153,12 +153,12 @@ ggplot(dot_data, aes(x = condition, y = clusters)) +
 ggsave(paste0(output_dir, "Fig4d_dot.pdf"), width = 4, height = 4)
 
 # Fig4e: Module score, finding influenza-responsive mDC subtypes in public single cell data 
+
 Idents(Lee_mDC) <- 'subject.group'
-Lee_mDC <- JoinLayers(Lee_mDC)
 Flu.Marker <- FindMarkers(subset(Lee_mDC, subset = newCluster %in% c('mDC.2','mDC.3')), ident.1='Influenza patient', ident.2='healthy control', only.pos = TRUE)
 Flu.marker.up <- Flu.Marker %>% filter(p_val_adj < 0.05) %>% dplyr::arrange(avg_log2FC) 
 Flu.marker.up <- Flu.marker.up[Flu.marker.up$pct.1>0.7 & Flu.marker.up$pct.2<0.3,] %>% dplyr::arrange(desc(avg_log2FC)) 
 
-public_mDC <- AddModuleScore(public_mDC, features = rownames(Flu.marker.up), name="Lee_mDC_Flu_marker_Score")
-FeaturePlot(public_mDC, features = 'Lee_mDC_Flu_marker_Score', raster = FALSE) + scale_color_gradientn(colors = c("#DEDEDE","#A5D6A7","#66BB6A","#448461","#448461"))
-ggsave('Lee_mDC_Flu_marker_Score.pdf', width = 5, height = 5)
+public_mDC <- AddModuleScore(public_mDC, features = list(rownames(top20.ClusterMarker.UP)), name="Lee_mDC_Flu_marker_Score")
+FeaturePlot(public_mDC, features = 'Lee_mDC_Flu_marker_Score1', raster = FALSE) + scale_color_gradientn(colors = c("#DEDEDE","#A5D6A7","#66BB6A","#448461","#448461"))
+ggsave(paste0(output_dir, 'Fig4e.pdf'), width = 5, height = 5)

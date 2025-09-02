@@ -8,6 +8,8 @@ library(ggbeeswarm)
 output_dir <- 'figures/'
 
 Lee_dataset <- readRDS('data/integrated.annotated.Lee_dataset.RDS')
+library(SeuratDisk)
+SaveH5Seurat(Lee_dataset, "integrated.annotated.Lee_dataset.h5seurat", overwrite=TRUE)
 
 # Fig2a: UMAP plot of all cells colored by celltype cluster
 custom_colors <- c(
